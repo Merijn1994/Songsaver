@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
+h1 {
+    text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.song-form {
+    display: flex;
+    justify-content: space-evenly;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.song-text {
+    flex-basis: 20%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.artist-text {
+    flex-basis: 20%;
 }
 
-.App-link {
-  color: #61dafb;
+.genre-selection {
+    flex-basis: 20%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.rating-selection {
+    flex-basis: 20%;
+}
+
+.song-header {
+    display: flex;
+    justify-content: space-evenly; 
+}
+
+.song-header__item {
+    font-weight: bold;
+    font-size: 18px;
+    flex-basis: 20%;
+}
+
+.song-list {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.list-item {
+    flex-basis: 20%;
+}
+
+.deleteButton{
+    height: 30px;
+    margin-top: 15px;
 }
