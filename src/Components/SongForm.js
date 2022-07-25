@@ -9,7 +9,6 @@ class SongForm extends Component {
                 artist: "",
                 genre: "",
                 rating: "",
-                id: 1
         }
         this.handleChange = this.handleChange.bind(this)
     }
@@ -23,7 +22,9 @@ class SongForm extends Component {
         return(
             <form 
                 className="song-form"
-                onSubmit={() => this.props.addSong(this.state)}
+                onSubmit={(event) =>  {
+                    event.preventDefault()
+                    this.props.addSong(this.state)}}
             >
                 <input 
                     className="song-text"
