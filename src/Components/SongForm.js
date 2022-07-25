@@ -9,7 +9,6 @@ class SongForm extends Component {
                 artist: "",
                 genre: "",
                 rating: "",
-                id: 1
         }
         this.handleChange = this.handleChange.bind(this)
     }
@@ -64,6 +63,7 @@ class SongForm extends Component {
                     name="rating"
                     onChange={this.handleChange}                        
                 >
+                    <option >Select Rating</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>

@@ -16,20 +16,18 @@ class SongOverview extends Component {
   
     addSong (song)  {
       this.setState({
-        ...this.state.songs,
         songs:[
+          ...this.state.songs,
           { 
             title: song.title,
             artist: song.artist,
             genre: song.genre,
             rating: song.rating,
-            id: song.id + 1
+            id: this.state.songs.length + 1
           }
         ]
       })
     }
-
-    deleteSongs = () => this.setState({songs: [] })
   
     render() {
       return (
@@ -41,7 +39,6 @@ class SongOverview extends Component {
                   <p className="song-header__item">Artist</p>
                   <p className="song-header__item">Genre</p>
                   <p className="song-header__item">Rating</p>
-                  <button className="deleteButton" onClick={this.deleteSongs}>Delete</button>
                 </div> 
             {this.state.songs.map(song => 
             <SongList key={song.id} song={song}/>)}
