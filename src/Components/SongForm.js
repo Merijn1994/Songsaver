@@ -22,7 +22,7 @@ class SongForm extends Component {
         return(
             <form 
                 className="song-form"
-                onSubmit={this.props.addSong}
+                onSubmit={() => this.props.addSong(this.state)}
             >
                 <input 
                     className="song-text"

@@ -15,6 +15,7 @@ class SongOverview extends Component {
     }
   
     addSong (song)  {
+      console.log(song);
       this.setState({
         ...this.state.songs,
         songs:[
