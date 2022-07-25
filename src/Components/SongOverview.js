@@ -15,18 +15,26 @@ class SongOverview extends Component {
     }
   
     addSong (song)  {
-      this.setState({
-        songs:[
-          ...this.state.songs,
-          { 
-            title: song.title,
-            artist: song.artist,
-            genre: song.genre,
-            rating: song.rating,
-            id: this.state.songs.length + 1
-          }
-        ]
-      })
+      if (song.title === "" && song.artist === "" ) {
+        this.setState({
+          songs:[
+            ...this.state.songs
+          ]
+        })
+      } else {
+        this.setState({
+          songs:[
+            ...this.state.songs,
+            { 
+              title: song.title,
+              artist: song.artist,
+              genre: song.genre,
+              rating: song.rating,
+              id: this.state.songs.length + 1
+            }
+          ]
+        })
+      }
     }
   
     render() {
@@ -39,9 +47,11 @@ class SongOverview extends Component {
                   <p className="song-header__item">Artist</p>
                   <p className="song-header__item">Genre</p>
                   <p className="song-header__item">Rating</p>
-                </div> 
-            {this.state.songs.map(song => 
-            <SongList key={song.id} song={song}/>)}
+                </div>
+            <div className="song-list">
+              {this.state.songs.map(song => 
+              <SongList key={song.id} song={song}/>)}
+            </div> 
         </div>
       );
     }
