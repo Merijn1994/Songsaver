@@ -23,7 +23,7 @@ class SongOverview extends Component {
             artist: song.artist,
             genre: song.genre,
             rating: song.rating,
-            id: song.id.length + 1
+            id: song.id + 1
           }
         ]
       })
