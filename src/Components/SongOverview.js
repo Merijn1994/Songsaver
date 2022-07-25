@@ -12,6 +12,7 @@ class SongOverview extends Component {
         songs: []
       }
       this.addSong = this.addSong.bind(this)
+      this.clearList = this.clearList.bind(this)
     }
   
     addSong (song)  {
@@ -36,6 +37,10 @@ class SongOverview extends Component {
         })
       }
     }
+
+    clearList () {
+      this.setState({songs: []})
+    }
   
     render() {
       return (
@@ -47,6 +52,7 @@ class SongOverview extends Component {
                   <p className="song-header__item">Artist</p>
                   <p className="song-header__item">Genre</p>
                   <p className="song-header__item">Rating</p>
+                  <button className="clear-button" onClick={this.clearList}>Clear List</button>
                 </div>
             <div className="song-list">
               {this.state.songs.map(song => 
