@@ -9,6 +9,7 @@ class SongForm extends Component {
                 artist: "",
                 genre: "",
                 rating: "",
+                id: 1
         }
         this.handleChange = this.handleChange.bind(this)
     }

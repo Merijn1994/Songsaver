@@ -23,7 +23,8 @@ class SongOverview extends Component {
             title: song.title,
             artist: song.artist,
             genre: song.genre,
-            rating: song.rating
+            rating: song.rating,
+            id: song.id.length + 1
           }
         ]
       })
@@ -44,7 +45,7 @@ class SongOverview extends Component {
                   <button className="deleteButton" onClick={this.deleteSongs}>Delete</button>
                 </div> 
             {this.state.songs.map(song => 
-            <SongList song={song}/>)}
+            <SongList key={song.id} song={song}/>)}
         </div>
       );
     }
