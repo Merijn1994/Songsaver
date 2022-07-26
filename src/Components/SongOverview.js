@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SongList from "./SongList";
 import SongForm from "./SongForm";
+import SongListHeader from "./SongListHeader";
 
 
 class SongOverview extends Component {
@@ -12,7 +13,6 @@ class SongOverview extends Component {
         songs: []
       }
       this.addSong = this.addSong.bind(this)
-      this.clearList = this.clearList.bind(this)
     }
   
     addSong (song)  {
@@ -38,7 +38,7 @@ class SongOverview extends Component {
       }
     }
 
-    clearList () {
+    clearList = () => {
       this.setState({songs: []})
     }
   
@@ -47,13 +47,7 @@ class SongOverview extends Component {
         <div>
             <h1>Song Saver</h1>
             <SongForm addSong={this.addSong}/>
-                <div className="song-header">
-                  <p className="song-header__item">Song</p>
-                  <p className="song-header__item">Artist</p>
-                  <p className="song-header__item">Genre</p>
-                  <p className="song-header__item">Rating</p>
-                  <button className="clear-button" onClick={this.clearList}>Clear List</button>
-                </div>
+            <SongListHeader clearList = {this.clearList}/>
             <div className="song-list">
               {this.state.songs.map(song => 
               <SongList key={song.id} song={song}/>)}
