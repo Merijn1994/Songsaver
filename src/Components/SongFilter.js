@@ -33,7 +33,7 @@ class SongFilter extends Component {
                     <option value="pop">Pop</option>
                     <option value="soul">Soul</option>
                 </select>
-
+                {this.props.children}
                 <select 
                     className="rating-filter"
                     name="ratingFilter"
