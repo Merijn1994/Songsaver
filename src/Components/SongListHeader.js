@@ -1,25 +1,60 @@
 import React from "react";
 
-function SongListHeader ( ) {
+function SongListHeader ({ handleSortButtons }) {
     return (
-        <div className="song-header">
-            <p className="song-header__item">Song</p>
-            <button
-                className="sort-buttons">A-Z</button>
-            <button
-                className="sort-buttons">Z-A</button>
-            <p className="song-header__item">Artist</p>
-            <button
-                className="sort-buttons">A-Z</button>
-            <button
-                className="sort-buttons">Z-A</button>
-            <p className="song-header__item">Genre</p>
-            <p className="song-header__item">Rating</p>
-            <button
-                className="sort-buttons">5-1</button>
-            <button
-                className="sort-buttons">1-5</button>
-        </div>
+            <tr className="song-header">
+                <th className="song-header__item">Song
+                    <span className="title-buttons">
+                        <button
+                            className="sort-buttons-left"
+                            onClick={handleSortButtons}
+                            value="titleAscending"
+                        >A-Z
+                        </button>
+                        <button
+                            className="sort-buttons-right"
+                            onClick={handleSortButtons}
+                            value="titleDescending"
+                        >Z-A
+                        </button>
+                    </span>
+                </th>
+
+                <th className="song-header__item">Artist
+                    <span className="title-buttons">
+                        <button
+                            className="sort-buttons-left"
+                            onClick={handleSortButtons}
+                            value="artistAscending"
+                        >A-Z
+                        </button>
+                        <button
+                            className="sort-buttons-right"
+                            onClick={handleSortButtons}
+                            value="artistDescending"
+                        >Z-A
+                        </button>
+                    </span>
+                </th>
+
+                <th className="song-header__item">Genre</th>
+                <th className="song-header__item">Rating
+                    <span className="title-buttons">
+                        <button
+                            className="sort-buttons-left"
+                            onClick={handleSortButtons}
+                            value="ratingDescending"
+                        >5-1
+                        </button>
+                        <button
+                            className="sort-buttons-right"
+                            onClick={handleSortButtons}
+                            value="ratingAscending"
+                        >1-5
+                        </button>
+                    </span>
+                </th>
+            </tr>
     )
 }
 
