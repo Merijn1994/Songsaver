@@ -17,7 +17,11 @@ class SongFilter extends Component {
 
     render () {
         return (
-            <div>
+            <form 
+                onSubmit={(event) => {
+                    event.preventDefault()
+                    this.props.filter(this.state)}}
+            >
                 <select 
                     className="genre-filter"
                     name="genreFilter"
@@ -33,7 +37,6 @@ class SongFilter extends Component {
                     <option value="pop">Pop</option>
                     <option value="soul">Soul</option>
                 </select>
-                {this.props.children}
                 <select 
                     className="rating-filter"
                     name="ratingFilter"
@@ -47,7 +50,9 @@ class SongFilter extends Component {
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-            </div>
+
+                <button>Filter</button>
+            </form>
         )
     }
 }

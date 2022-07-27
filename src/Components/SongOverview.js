@@ -15,7 +15,10 @@ class SongOverview extends Component {
     }
   
     addSong (song)  {
-      if (song.title === "" && song.artist === "" ) {
+      if (song.title === "" || 
+          song.artist === "" ||
+          song.genre === "" ||
+          song.rating === "") {
         this.setState({
           songs:[
             ...this.state.songs
@@ -37,14 +40,25 @@ class SongOverview extends Component {
       }
     }
 
-    
+    filter = (filterValue) => {
+      this.setState(prevState => {
+        const filter = prevState.songs.filter(song => {
+          return song.genre.includes(filterValue.genreFilter)
+        })
+        console.log(prevState.songs);
+        console.log(filter);
+        return {
+          songs: filter
+        }
+      })
+    }    
   
     render() {
       return (
         <div>
             <h1>Song Saver</h1>
             <SongForm addSong={this.addSong}/>
-            <SongListHeader />
+            <SongListHeader filter={this.filter}/>
             <div className="song-list">
               {this.state.songs.map(song => 
               <SongList key={song.id} song={song}/>)}
