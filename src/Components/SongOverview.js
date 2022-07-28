@@ -42,15 +42,14 @@ class SongOverview extends Component {
     }
 
     filter = (filterValue) => {
-      console.log(filterValue);
       this.setState(prevState => {
         const filter = prevState.songs.filter(song => {
           if (filterValue.genreFilter !== "" && filterValue.ratingFilter !== "") {
           return song.genre === filterValue.genreFilter && song.rating === filterValue.ratingFilter
-          } else if (filterValue.genreFilter !==  "filter-genre" && filterValue.ratingFilter === "filter-rating" || filterValue.ratingFilter === "") {
+          } else if (filterValue.genreFilter !== "" && filterValue.ratingFilter === "") {
             return song.genre === filterValue.genreFilter
-          } else if (filterValue.ratingFilter !== "filter-rating" && filterValue.genreFilter === "filter-genre" || filterValue.genreFilter === "") {
-            return song.genre === filterValue.ratingFilter
+          } else if (filterValue.ratingFilter !== "" && filterValue.genreFilter === "") {
+            return song.rating === filterValue.ratingFilter
           }
         })
         return {
