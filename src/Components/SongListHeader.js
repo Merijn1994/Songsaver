@@ -3,14 +3,13 @@ import SongFilter from "./SongFilter";
 
 function SongListHeader ( {filter} ) {
     return (
-        <div className="song-header">
-            <p className="song-header__item">Song</p>
-            <p className="song-header__item">Artist</p>
-            <p className="song-header__item">Genre</p>
-            <p className="song-header__item">Rating</p>
-            <SongFilter filter={filter} />
-
-        </div>
+        <tr className="song-header">
+            <th className="song-header__item">Song</th>
+            <th className="song-header__item">Artist</th>
+            <th className="song-header__item">Genre</th>
+            <th className="song-header__item">Rating</th>
+            <th><SongFilter filter={filter} /></th>
+        </tr>
     )
 }
 

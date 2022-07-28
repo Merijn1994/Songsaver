@@ -68,8 +68,10 @@ class SongOverview extends Component {
         <div>
             <h1>Song Saver</h1>
             <SongForm addSong={this.addSong}/>
-            <SongListHeader filter={this.filter}/>
-            { songList }
+            <table>
+              <SongListHeader filter={this.filter}/>
+              { songList }
+            </table>
         </div>
       );
     }
