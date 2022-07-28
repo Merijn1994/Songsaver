@@ -42,6 +42,14 @@ table {
     color: white;
 }
 
+.title-buttons {
+    margin-left: 10px;
+}
+
+.sort-buttons-right {
+    margin-left: 2px;
+}
+
 .song-list-row {
     background-color: rgb(219, 104, 96);
 }

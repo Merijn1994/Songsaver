@@ -43,6 +43,49 @@ class SongOverview extends Component {
     clearList = () => {
       this.setState({songs: []})
     }
+
+    handleSortButtons = event => {
+    switch (event.target.value) {
+      case "titleAscending":
+      let titleAscending = this.state.songs.sort((a, b) => a.title.localeCompare(b.title))
+      this.setState({
+          songs: titleAscending
+        })        
+        break;
+      case "titleDescending":
+        let titleDescending = this.state.songs.sort((a, b) => b.title.localeCompare(a.title))
+        this.setState({
+          songs: titleDescending
+        })
+        break;
+      case "artistAscending":
+        let artistAscending = this.state.songs.sort((a, b) => a.artist.localeCompare(b.artist))
+        this.setState({
+          songs: artistAscending
+        })        
+        break;
+      case "artistDescending":
+        let artistDescending = this.state.songs.sort((a, b) => b.artist.localeCompare(a.artist))
+        this.setState({
+          songs: artistDescending
+        })
+        break;
+      case "ratingDescending":
+        let ratingDescending = this.state.songs.sort((a, b) => b.rating.localeCompare(a.rating))
+        this.setState({
+          songs: ratingDescending
+        })
+        break;
+      case "ratingAscending":
+        let ratingAscending = this.state.songs.sort((a, b) => a.rating.localeCompare(b.rating))
+        this.setState({
+          songs: ratingAscending
+        })        
+        break;
+      default:
+        break;
+    }
+  }
   
     render() {
       return (
@@ -50,7 +93,7 @@ class SongOverview extends Component {
             <h1>Song Saver</h1>
             <SongForm addSong={this.addSong}/>
             <table>
-              <SongListHeader clearList = {this.clearList}/>
+              <SongListHeader clearList = {this.clearList} handleSortButtons = {this.handleSortButtons}/>
               {this.state.songs.map(song => 
               <SongList key={song.id} song={song}/>)}
             </table>
