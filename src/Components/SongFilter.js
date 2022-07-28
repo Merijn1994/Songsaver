@@ -28,7 +28,7 @@ class SongFilter extends Component {
                     value={this.state.genreFilter}
                     onChange={this.handleChange}
                 >
-                    <option>Filter Genre</option>
+                    <option value= "filter-genre">Filter Genre</option>
                     <option value="rock">Rock</option>
                     <option value="jazz">Jazz</option>
                     <option value="punk">Punk</option>
@@ -43,7 +43,7 @@ class SongFilter extends Component {
                     value={this.state.ratingFilter}
                     onChange={this.handleChange}                      
                 >
-                    <option >Filter Rating</option>
+                    <option value="filter-rating" >Filter Rating</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
