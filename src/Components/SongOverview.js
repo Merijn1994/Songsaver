@@ -9,7 +9,8 @@ class SongOverview extends Component {
       super()
       this.state = 
       {
-        songs: []
+        songs: [],
+        filteredSongs: []
       }
       this.addSong = this.addSong.bind(this)
     }
@@ -87,15 +88,36 @@ class SongOverview extends Component {
     }
   }
   
+    filter = (filterValue) => {
+      this.setState(prevState => {
+        const filter = prevState.songs.filter(song => {
+          if (filterValue.genreFilter !== "" && filterValue.ratingFilter !== "") {
+          return song.genre === filterValue.genreFilter && song.rating === filterValue.ratingFilter
+          } else if (filterValue.genreFilter !== "" && filterValue.ratingFilter === "") {
+            return song.genre === filterValue.genreFilter
+          } else if (filterValue.ratingFilter !== "" && filterValue.genreFilter === "") {
+            return song.rating === filterValue.ratingFilter
+          }
+        })
+        return {
+          filteredSongs: filter
+        }
+      })
+    }    
+  
     render() {
+      let songList = this.state.filteredSongs.length > 0 
+      ? this.state.filteredSongs.map(song =><SongList key={song.id} song={song}/>) 
+      : this.state.songs.map(song =><SongList key={song.id} song={song}/>)
+
       return (
+
         <div>
             <h1>Song Saver</h1>
             <SongForm addSong={this.addSong}/>
             <table>
-              <SongListHeader clearList = {this.clearList} handleSortButtons = {this.handleSortButtons}/>
-              {this.state.songs.map(song => 
-              <SongList key={song.id} song={song}/>)}
+              <SongListHeader filter={this.filter} clearList = {this.clearList} handleSortButtons = {this.handleSortButtons}/>
+              { songList }
             </table>
         </div>
       );
