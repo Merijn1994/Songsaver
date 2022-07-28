@@ -39,16 +39,20 @@ class SongOverview extends Component {
         })
       }
     }
+
+    clearList = () => {
+      this.setState({songs: []})
+    }
   
     render() {
       return (
         <div>
             <h1>Song Saver</h1>
-            <SongForm addSong= {this.addSong}/>
+            <SongForm addSong={this.addSong}/>
             <table>
-              <SongListHeader />
-                {this.state.songs.map(song => 
-                <SongList key={song.id} song={song}/>)}
+              <SongListHeader clearList = {this.clearList}/>
+              {this.state.songs.map(song => 
+              <SongList key={song.id} song={song}/>)}
             </table>
         </div>
       );
