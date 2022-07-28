@@ -46,7 +46,7 @@ class SongOverview extends Component {
             <h1>Song Saver</h1>
             <SongForm addSong= {this.addSong}/>
             <table>
-              <SongListHeader handleSortButtons = {this.handleSortButtons}/>
+              <SongListHeader />
                 {this.state.songs.map(song => 
                 <SongList key={song.id} song={song}/>)}
             </table>
