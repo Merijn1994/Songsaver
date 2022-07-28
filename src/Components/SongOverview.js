@@ -16,7 +16,10 @@ class SongOverview extends Component {
     }
   
     addSong (song)  {
-      if (song.title === "" && song.artist === "" ) {
+      if (song.title === "" || 
+          song.artist === "" ||
+          song.genre === "" ||
+          song.rating === "") {
         this.setState({
           songs:[
             ...this.state.songs
@@ -47,11 +50,11 @@ class SongOverview extends Component {
         <div>
             <h1>Song Saver</h1>
             <SongForm addSong={this.addSong}/>
-            <SongListHeader clearList = {this.clearList}/>
-            <div className="song-list">
+            <table>
+              <SongListHeader clearList = {this.clearList}/>
               {this.state.songs.map(song => 
               <SongList key={song.id} song={song}/>)}
-            </div> 
+            </table>
         </div>
       );
     }
